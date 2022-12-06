@@ -1,3 +1,23 @@
+# Tuto
+Tuto original : https://blog.buddyweb.fr/tutoriel-creer-une-application-basique-avec-angular/
+## installation engular cli 
+~~~ npm install -g @angular/cli ~~~
+## initilisation du projet
+~~~ ng new angular-tutorial ~~~
+## lancement du serveur 
+~~~ ng serve ~~~
+## configuration de sass
+Dans Angular.json :
+~~~
+"schematics": {        
+  "@schematics/angular:component": {          
+    "styleext": "scss"        
+  }
+}
+~~~
+
+
+
 # AngularTutorial
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
