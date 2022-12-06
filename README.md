@@ -1,13 +1,20 @@
 # Tuto
 Tuto original : https://blog.buddyweb.fr/tutoriel-creer-une-application-basique-avec-angular/
 ## installation engular cli 
-~~~ npm install -g @angular/cli ~~~
+~~~ 
+npm install -g @angular/cli 
+~~~
 ## initilisation du projet
-~~~ ng new angular-tutorial ~~~
+~~~ 
+ng new angular-tutorial 
+~~~
 ## lancement du serveur 
-~~~ ng serve ~~~
+~~~ 
+ng serve 
+~~~
 ## configuration de sass
 Dans Angular.json :
+Ce point est ko a la generation d'un composant. Donc je reverte, peut etre car j'ai pas fais la partie bulma.
 ~~~
 "schematics": {        
   "@schematics/angular:component": {          
@@ -15,6 +22,25 @@ Dans Angular.json :
   }
 }
 ~~~
+# bulma
+Je zappe cette partie
+
+# composant
+## Creation d'un composant header 
+Le _partials_ n'est pas uen convention. 
+~~~
+ng g c partials/header
+ou 
+ng generate component partials/header
+~~~
+## Ajout dans le app.component.html
+(equivalent du index.html)
+~~~
+<app-header></app-header>
+~~~
+
+
+
 
 
 
