@@ -13,4 +13,8 @@ export class MatchService {
   list() : Observable<Match[]> {
     return this.http.get<Match[]>('https://bridge.buddyweb.fr/api/tutorials/matches')
   }
+
+  show(id: number) : Observable<Match> {
+    return this.http.get<Match>('https://bridge.buddyweb.fr/api/tutorials/matches/'+id)
+  }
 }

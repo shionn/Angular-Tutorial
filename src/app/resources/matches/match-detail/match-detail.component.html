@@ -1,1 +1,4 @@
 <p>match-detail works!</p>
+<div *ngIf="match">
+    <img [src] = "match.home_team_image"> {{ match.home_team }} {{ match.home_team_goals }}  VS {{ match.away_team_goals }} {{ match.away_team }} <img [src] = "match.away_team_image">
+</div>
