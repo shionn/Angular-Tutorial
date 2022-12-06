@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { BrowserModule} from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
@@ -18,7 +19,8 @@ import { MatchListComponent } from './resources/matches/match-list/match-list.co
   ],
   imports: [
     BrowserModule, 
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes), 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,4 @@
 <p>match-list works!</p>
+<div *ngFor="let m of matches" [routerLink] = "['matches', m.id]">
+    {{ m.home_team }} {{ m.home_team_goals }}  VS {{ m.away_team_goals }} {{ m.away_team }}
+</div>

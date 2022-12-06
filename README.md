@@ -96,7 +96,39 @@ si j'ouvre la page http://localhost:4200/matches/foo j'ai le résultat :
 ~~~
 header works!
 match-detail works!
-footer
+Html fix
+~~~
+
+# Service
+## Creation du service
+~~~
+ng g s services/match
+~~~
+## Interface
+l'interface est la definition du type de retour d'un service. Dans app/interfaces/match.ts, ajouter : 
+~~~
+export interface Match {
+    id: number
+    home_team : string
+    away_team : string
+    home_team_goals: number
+    away_team_goals: number
+    home_team_image: string
+    away_team_image: string
+    video_url: string
+}
+~~~
+## appel HTTP
+Ajout du module dans app.module.ts
+~~~
+import { HttpClientModule } from '@angular/common/http';
+// ...
+imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule],
+~~~
+
+Ecriture du service match.service.ts
+~~~
+
 ~~~
 
 
