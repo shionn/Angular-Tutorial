@@ -27,7 +27,7 @@ Je zappe cette partie
 
 # composant
 ## Creation d'un composant header 
-Le _partials_ n'est pas uen convention. 
+est-ce que _partials_ est une convention ? 
 ~~~
 ng g c partials/header
 ou 
@@ -39,35 +39,64 @@ ng generate component partials/header
 <app-header></app-header>
 ~~~
 
+# Routes
+Les routes sont des composant qui change en fonction de l'url d'appel. 
+- une route "MatchList" repondra au / 
+- une route "MatchDetail" repondra au /matches/:id
+## creation des composants routes
+est-ce que _resources_ est une convention ? 
+~~~
+ng g c resources/matches/match-detail
+ng g c resources/matches/match-list
+~~~
+## déclaration des routes 
+Ajouter un fichier app.routes.ts. 
+~~~
+import { Routes } from "@angular/router";
+import { MatchListComponent } from "./resources/matches/match-list/match-list.component";
+import { MatchDetailComponent } from "./resources/matches/match-detail/match-detail.component";
+export const appRoutes: Routes = [
+    {
+        path: '', 
+        component: MatchListComponent
+    },
+    { 
+        path: 'matches/:id', 
+        component: MatchDetailComponent 
+    }
+]
+~~~
+## import à l'aide du module RouterModule
+importer les routes dans le fichier app.module.ts. Il fau modifier le noeu imports comme suit : 
+~~~
+imports: [BrowserModule, RouterModule.forRoot(appRoutes)]
+~~~
+## modification de la page principal (app.component.html)
+modifier comme suit : 
+~~~
+<app-header></app-header> 
+<router-outlet></router-outlet> 
+<div>Html fix</div>
+~~~
+## résulat
+La page web est composé de 
+- header avec le composant header. 
+- une partie variable avec le module router qui change en fonction de nos route
+- une partie fix avec le div
+
+### appel à / 
+si j'ouvre la page http://localhost:4200/ j'ai le résultat : 
+~~~
+header works!
+match-list works!
+Html fix
+~~~
+### appel à /matches/foo
+si j'ouvre la page http://localhost:4200/matches/foo j'ai le résultat : 
+~~~
+header works!
+match-detail works!
+footer
+~~~
 
 
-
-
-
-# AngularTutorial
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
